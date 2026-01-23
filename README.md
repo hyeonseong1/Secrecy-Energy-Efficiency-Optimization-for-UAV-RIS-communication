@@ -11,8 +11,8 @@ Before running the script, ensure the following dependencies installed:
 You can install the dependencies to run:
 
 ```bash
-conda create -n MTPO python=3.10
-conda activate MTPO
+conda create -n uavris python=3.10
+conda activate uavris
 pip install -r requirements.txt
 ```
 You can install different version of torch with compatible cuda version. 
@@ -21,9 +21,9 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 ```
 Then train multi-agent with 4 types of algorithms:
 ```bash
-##### MTPO #####
+##### D-PPO+ #####
 python main_train.py --algo SIMBA
-##### PPO #####
+##### D-PPO #####
 python main_train.py --algo PPO
 ##### TTD3 #####
 python main_train.py --algo TD3
@@ -38,7 +38,7 @@ sh run.sh
 Use metrics to see performances or parameters of your trained model 
 ```bash
 python metrics/load_and_plot.py --path data/storage/[algorithm]/[your data path]
-python metrics/plot_average.py   --paths data/storage/DDPG data/storage/TD3 data/storage/PPO data/storage/SIMBA  --labels "TDDRL" "TTD3" "DPPO" "GDP (Proposed)" --out plots/comparison_result.png
+python metrics/plot_average.py   --paths data/storage/DDPG data/storage/TD3 data/storage/PPO data/storage/SIMBA  --labels "TDDRL" "TTD3" "D-PPO" "D-PPO+ (Proposed)" --out plots/comparison_result.png
 python calculate_simplicity.py
 python metrics/total_params.py 
 ```
